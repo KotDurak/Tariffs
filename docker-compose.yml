@@ -1,0 +1,13 @@
+version: '3.2'
+services:
+  php:
+    build:
+      context: './'
+    ports:
+      - '8000:80'
+    volumes:
+      - ./php_config/php.ini:/usr/local/etc/php/php.ini
+      - ./logs/error.log:/var/log/apache2/error.log
+      - ./src/www:/var/www/html
+      - ./src:/var/www
+    restart: always
